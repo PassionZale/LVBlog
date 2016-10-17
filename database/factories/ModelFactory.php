@@ -19,3 +19,23 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Category::class, function (Faker\Generator $faker) {
+    return [
+        'name' => str_random(5)
+    ];
+});
+
+$factory->define(App\Tag::class, function (Faker\Generator $faker) {
+    return [
+        'name' => str_random(8)
+    ];
+});
+
+$factory->define(App\Article::class, function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->sentence(mt_rand(3, 5)),
+        'desc' => $faker->sentence(mt_rand(10, 50)),
+        'content' => join("\n\n", $faker->paragraphs(mt_rand(3, 6))),
+    ];
+});
