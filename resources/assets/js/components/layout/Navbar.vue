@@ -33,7 +33,8 @@
                             {{user.name}}<span class="caret"></span>
                         </a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="/logout"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                        <li><a href="/"><i class="fa fa-btn fa fa-fort-awesome"></i>首页</a></li>
+                        <li><a href="/logout"><i class="fa fa-btn fa-sign-out"></i>注销</a></li>
                     </ul>
                 </li>
             </ul>
