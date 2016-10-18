@@ -19,11 +19,11 @@ img#showUploadFile {
 <form v-if="isUpload" @submit.prevent="uploadPhoto" class="animated fadeIn" role="form">
     <div class="form-group">
         <label>Alt text:</label>
-        <input v-model="uploader.imgText" type="text" class="form-control" placeholder="<img alt='...'/>">
+        <input v-model="uploader.imgText" type="text" class="form-control" placeholder="<img alt='...'/>" required>
     </div>
     <div class="form-group">
         <label>Alt title:</label>
-        <input v-model="uploader.imgTitle" type="text" class="form-control" placeholder="<img title='...'/>">
+        <input v-model="uploader.imgTitle" type="text" class="form-control" placeholder="<img title='...'/>" required>
     </div>
     <div class="form-group">
         <label>选择图片：</label>
