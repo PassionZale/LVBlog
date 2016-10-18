@@ -196,15 +196,17 @@ export default {
                 toggleTag: function(tag) {
                     let self = this;
                     if (tag.isSelected) {
-                        $.each(self.article.tagSelected,function(i,item){
-                            if ((tag.id === item.id) && tag.isSelected) {
+                        $.each(self.article.tagSelected, function(i, item) {
+                            if (tag.id === item.id) {
+                                tag.isSelected = !tag.isSelected;
                                 self.article.tagSelected.$remove(item);
+                                return false;
                             }
                         });
                     } else {
                         self.article.tagSelected.push(tag);
+                        tag.isSelected = !tag.isSelected;
                     }
-                    tag.isSelected = !tag.isSelected;
                 },
                 fullScreen: function() {
                     this.isFullScreen = !this.isFullScreen;
