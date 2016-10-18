@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Controllers\Api\ApiController;
 use App\Http\Requests;
-use Storage;
+use Config;
 use Qiniu\Auth as QiAuth;
 use Qiniu\Storage\UploadManager;
 use Qiniu\Storage\BucketManager;
@@ -14,15 +14,15 @@ use Qiniu\Storage\BucketManager;
 class UploadController extends ApiController
 {
     // url
-    public $url = 'http://oewvb9bk1.bkt.clouddn.com/';
+    public $url;
     // AK
-    public $accessKey = 'WVchuY_EyKgxqPPs1a39lMdjHc-vQX_3detPjdgn';
+    public $accessKey;
     // SK
-    public $secretKey = '3LE9DwPpBwZZmt1b2xVA4gl-w4i4XoHno_3Ana8T';
+    public $secretKey;
     // 上传的空间
-    public $bucket = 'lovechun4ever';
+    public $bucket;
     // 文件的公共前缀
-    public $prefix = 'image/article/';
+    public $prefix;
     // 鉴权对象
     public $auth;
     // 空间管理对象
@@ -30,9 +30,16 @@ class UploadController extends ApiController
     // 上传对象
     public $uploadMgr;
     // 图片样式
-    public $imgClass = '?imageView2/2/w/565/interlace/1/q/50';
+    public $imgClass;
 
     public function __construct(){
+        $this->url = Config::get('qiniu.url');
+        $this->accessKey = Config::get('qiniu.accessKey');
+        $this->secretKey = Config::get('qiniu.secretKey');
+        $this->bucket = Config::get('qiniu.bucket');
+        $this->prefix = Config::get('qiniu.prefix');
+        $this->imgClass = Config::get('qiniu.imgClass');
+
         $this->auth = new QiAuth($this->accessKey, $this->secretKey);
         $this->bucketMgr = new BucketManager($this->auth);
         $this->uploadMgr = new UploadManager();
