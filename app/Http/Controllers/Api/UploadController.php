@@ -14,15 +14,15 @@ use Qiniu\Storage\BucketManager;
 class UploadController extends ApiController
 {
     // url
-    public $url = 'http://oewvb9bk1.bkt.clouddn.com/';
+    public $url = env('QINIU_URL');
     // AK
-    public $accessKey = 'WVchuY_EyKgxqPPs1a39lMdjHc-vQX_3detPjdgn';
+    public $accessKey = env('QINIU_AK');
     // SK
-    public $secretKey = '3LE9DwPpBwZZmt1b2xVA4gl-w4i4XoHno_3Ana8T';
+    public $secretKey = env('QIUNIU_SK');
     // 上传的空间
-    public $bucket = 'lovechun4ever';
+    public $bucket = env('QINIU_BUCKET');
     // 文件的公共前缀
-    public $prefix = 'image/article/';
+    public $prefix = env('QINIU_PREFIX','');
     // 鉴权对象
     public $auth;
     // 空间管理对象
@@ -30,7 +30,7 @@ class UploadController extends ApiController
     // 上传对象
     public $uploadMgr;
     // 图片样式
-    public $imgClass = '?imageView2/2/w/565/interlace/1/q/50';
+    public $imgClass = env('QINIU_IMGCLASS','');
 
     public function __construct(){
         $this->auth = new QiAuth($this->accessKey, $this->secretKey);
