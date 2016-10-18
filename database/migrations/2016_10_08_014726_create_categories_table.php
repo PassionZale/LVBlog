@@ -18,7 +18,7 @@ class CreateCategoriesTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create('category_article',function(Blueprint $table){
+        Schema::create('article_category',function(Blueprint $table){
             $table->integer('article_id')->unsigned()->index();
             $table->foreign('article_id')->references('id')->on('articles')->onDelete('cascade');
             $table->integer('category_id')->unsigned()->index();
@@ -35,6 +35,6 @@ class CreateCategoriesTable extends Migration
     public function down()
     {
         Schema::drop('categories');
-        Schema::drop('category_article');
+        Schema::drop('article_category');
     }
 }
