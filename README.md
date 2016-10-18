@@ -9,3 +9,9 @@
 - bower: 管理各个资源库，bootstrap,jquery,sweetaler...
 - gulp: 复制文件，编译less，压缩js
 - 七牛云上传
+
+# TODO
+- 后端响应的封装
+- 标签展示
+- 更多分类显示
+- 后台首页数据统计
