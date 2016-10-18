@@ -34,8 +34,8 @@ $factory->define(App\Tag::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Article::class, function (Faker\Generator $faker) {
     return [
-        'title' => $faker->sentence(mt_rand(3, 5)),
-        'desc' => $faker->sentence(mt_rand(10, 50)),
+        'title' => $faker->sentence(mt_rand(1, 3)),
+        'desc' => $faker->sentence(mt_rand(20, 70)),
         'content' => join("\n\n", $faker->paragraphs(mt_rand(3, 6))),
     ];
 });
