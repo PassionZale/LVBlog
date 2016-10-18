@@ -126,6 +126,7 @@ export default {
                 handler: function(val, oldVal) {
                     if (this.uploader.imgFinished) {
                         this.$set('showUploader', false);
+                        //TODO TEXT TITLE SRC 非空判断
                         this.article.content += "\n\n![" + this.uploader.imgText + "](" + this.uploader.imgSrc + " '" + this.uploader.imgTitle + "')";
                         this.$set('uploader', {});
                     }
@@ -162,6 +163,8 @@ export default {
                     self.$http.get('/api/tags?page=' + page).then(function(response) {
                         let tagCollection = self.article.tagSelected;
                         let tagData = response.data;
+
+                        // 扩展{isSelected = false}属性
                         $.each(tagData.data, function(i, item) {
                             item.isSelected = false;
                             tagData.data[i] = item;
@@ -191,10 +194,15 @@ export default {
                         this.$set('article.categorySelected', '');
                 },
                 toggleTag: function(tag) {
+                    let self = this;
                     if (tag.isSelected) {
-                        this.article.tagSelected.$remove(tag);
+                        $.each(self.article.tagSelected,function(i,item){
+                            if ((tag.id === item.id) && tag.isSelected) {
+                                self.article.tagSelected.$remove(item);
+                            }
+                        });
                     } else {
-                        this.article.tagSelected.push(tag);
+                        self.article.tagSelected.push(tag);
                     }
                     tag.isSelected = !tag.isSelected;
                 },
