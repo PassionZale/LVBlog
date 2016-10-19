@@ -58,9 +58,9 @@ $(function () {
         var id = $(this).attr('data-id');
         $('.largeImg' + id).addClass('largeImgShow');
     });
-    $('.largeImg').on('click', function () {
-        $(this).toggleClass('largeImgShow');
-    });
+//    $('.largeImg').on('click', function () {
+//        $(this).toggleClass('largeImgShow');
+//    });
     // 缩放事件
     (function () {
         var ham = new Hammer($(".largeImg1")[0], {
