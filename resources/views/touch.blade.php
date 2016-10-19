@@ -17,7 +17,7 @@
         height:auto;
     }
 </style>
-<div class="container" style="width:900px;height:500px;">
+<div class="container" style="width:100%;height:auto;">
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carousel-example-generic" data-slide-to="0" class=""></li>
