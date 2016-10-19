@@ -13,7 +13,7 @@
         -webkit-transform: translate(-50%,-50%);
         background-color:#f1f1f1;
         z-index:9999;
-        width:70%;
+        width:100%;
         height:auto;
     }
 </style>
@@ -66,13 +66,12 @@ $(function () {
         var ham = new Hammer($(".largeImg1")[0], {
             domEvents: true
         });
-        var width = 1900;
-        var height = 400;
+        var width = 720;
+        var height = 390;
         var left = 950;
         var top = 220;
         ham.get('pinch').set({enable: true});
-        $(".pinch").on("pinch", function (e) {
-            console.log("pinch");
+        $(".largeImg1").on("pinch", function (e) {
             if (width * e.originalEvent.gesture.scale >= 300) {
                 $(this).find("img").css({
                     width: width * e.originalEvent.gesture.scale,
