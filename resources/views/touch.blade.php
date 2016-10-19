@@ -73,7 +73,7 @@ $(function () {
         ham.get('pinch').set({enable: true});
         $(".largeImg1").on("pinch", function (e) {
             if (width * e.originalEvent.gesture.scale >= 300) {
-                $(this).find("img").css({
+                $(this).css({
                     width: width * e.originalEvent.gesture.scale,
                     "margin-left": -left * e.originalEvent.gesture.scale,
                     height: height * e.originalEvent.gesture.scale,
