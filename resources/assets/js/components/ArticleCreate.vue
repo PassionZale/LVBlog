@@ -200,12 +200,18 @@ export default {
                     // this.article.content += "\n![Alt text](http://oewvb9bk1.bkt.clouddn.com/image/article/14762526509806.jpg?imageView2/2/w/565/interlace/1/q/50 'Optional title')";
                 },
                 renderPreview: function() {
-                    // POST request to GitHub API
+                    // markdown to html
                     let self = this;
-                    $.post('http://gfm-kyanny.sqale.jp/markdown/raw', self.article.content, function(response) {
-                        self.renderedMarkdown = response;
-                        self.renderedMarkdown != '' ? self.showDialog = true : self.showDialog = false;
-                    });
+                    let converter = new showdown.Converter(),
+                        text = selft.article.content,
+                        html = converter.makeHtml(text);
+                    self.renderedMarkdown = html;
+                    self.renderedMarkdown != '' ? self.showDialog = true : self.showDialog = false;
+
+                    // $.post('http://gfm-kyanny.sqale.jp/markdown/raw', self.article.content, function(response) {
+                    //     self.renderedMarkdown = response;
+                    //     self.renderedMarkdown != '' ? self.showDialog = true : self.showDialog = false;
+                    // });
                 },
                 createArticle: function(article) {
                     this.$http.post('/api/articles', article).then(function(response) {

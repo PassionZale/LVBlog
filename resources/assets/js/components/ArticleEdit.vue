@@ -215,12 +215,13 @@ export default {
                     this.showUploader = !this.showUploader;
                 },
                 renderPreview: function() {
-                    // POST request to GitHub API
+                    // markdown to html
                     let self = this;
-                    $.post('http://gfm-kyanny.sqale.jp/markdown/raw', self.article.content, function(response) {
-                        self.renderedMarkdown = response;
-                        self.renderedMarkdown != '' ? self.showDialog = true : self.showDialog = false;
-                    });
+                    let converter = new showdown.Converter(),
+                        text = selft.article.content,
+                        html = converter.makeHtml(text);
+                    self.renderedMarkdown = html;
+                    self.renderedMarkdown != '' ? self.showDialog = true : self.showDialog = false;
                 },
                 updateArticle: function(article) {
                     this.$http.put('/api/articles/' + article.id, article).then(function(response) {

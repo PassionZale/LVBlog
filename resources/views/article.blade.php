@@ -50,18 +50,13 @@
 @section('script')
     <script>
         $(function(){
-            var rawMarkdown = $('#rawMarkdown').val();
+            var converter = new showdown.Converter(),
+                rawMarkdown = $('#rawMarkdown').val();
             if(rawMarkdown == ''){
                 $('#__loading__').html('sorry,there is nothing in this article...');
             }else{
-                $.post('http://gfm-kyanny.sqale.jp/markdown/raw', rawMarkdown, function(response) {
-                    $('#__loading__').hide();
-                    if(response == ''){
-                        $('article').html(rawMarkdown).show();
-                    }else{
-                        $('article').html(response).show();
-                    }
-                });
+                var html = converter.makeHtml(rawMarkdown);
+                $('article').html(html).show();
             }
         });
     </script>

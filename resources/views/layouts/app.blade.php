@@ -68,6 +68,7 @@
         <!-- JavaScripts -->
         <script src="{{ asset('js/lib/jquery.min.js') }}"></script>
         <script src="{{ asset('js/lib/bootstrap.min.js') }}"></script>
+        <script src="https://cdn.bootcss.com/showdown/1.3.0/showdown.min.js"></script>
         @yield('sidebar_script')
         @yield('script')
     </body>
