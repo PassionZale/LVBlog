@@ -21,14 +21,12 @@
 
     </head>
     <body>
-
-
         <script>
             @if (Auth::user())
-                    const USER = {!! Auth::user() !!};
-            USER.isLogin = true;
-                    @ else
-                    const USER = {isLogin: false}
+                const USER = {!! Auth::user() !!};
+                USER.isLogin = true;
+            @else
+                const USER = {isLogin: false}
             @endif
         </script>
         <!-- JavaScripts -->
@@ -36,7 +34,6 @@
         <script src="{{ asset('js/lib/bootstrap.min.js') }}"></script>
         <script src="{{ asset('js/lib/sweetalert.min.js') }}"></script>
         <script src="{{ asset('js/lib/html5ImgCompress/dist/html5ImgCompress.min.js') }}"></script>
-        <!--<script src="{{ asset('js/lib/markdown.min.js') }}"></script>-->
         <script src="https://cdn.bootcss.com/showdown/1.3.0/showdown.min.js"></script>
         <script src="{{ asset('js/build/app.js') }}"></script>
 

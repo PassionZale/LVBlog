@@ -203,7 +203,7 @@ export default {
                     // markdown to html
                     let self = this;
                     let converter = new showdown.Converter(),
-                        text = selft.article.content,
+                        text = self.article.content,
                         html = converter.makeHtml(text);
                     self.renderedMarkdown = html;
                     self.renderedMarkdown != '' ? self.showDialog = true : self.showDialog = false;
