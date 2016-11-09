@@ -56,6 +56,7 @@
                 $('#__loading__').html('sorry,there is nothing in this article...');
             }else{
                 var html = converter.makeHtml(rawMarkdown);
+                $('#__loading__').hide();
                 $('article').html(html).show();
             }
         });
