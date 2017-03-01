@@ -1,5 +1,5 @@
 # LVBlog
-- [demo website](http://2huo.lovchun.com, "http://2huo.lovchun.com")
+- [demo website](http://2huo.lovchun.com "演示DEMO")
 - account：email@email.com
 - password：111111
 
